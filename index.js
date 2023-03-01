@@ -7,11 +7,11 @@ const args = process.argv[2]
 const counter = new roundRobin();
 
 app.listen(3000, () => {
-    console.log('Listening on port 3000');
+    console.log('Listening on port 3000 - type: ' + args);
 });
 
 app.get('/', async (req, res) => {
-    if (args === '1') { 
+    if (args == '1') { 
         const url = counter.traditional();
         const request = await axios.get(url)
         return res.send(request.data)

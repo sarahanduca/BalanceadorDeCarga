@@ -27,4 +27,22 @@ class RoundRobin {
     
     }
 }
+// let index = 0
+// const roundRobin = (type) => {
+//   if(type === 1){
+//     if (index === 0) {
+//       console.log("aa")
+//       index++;
+//       return 'http://localhost:3001';
+//     }
+//   }
+//   if (index === 1) {
+//     index++;
+//     return 'http://localhost:3002';
+//     }else if (index === 2) {
+//       index = 0;
+//       return 'http://localhost:3003';
+//     }
+// }
+
 module.exports= RoundRobin;
