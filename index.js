@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const roundRobin = require('./roundRobin');
+const roundRobin = require('./utils/roundRobin');
 
 const app = express();
 const args = process.argv[2]
