@@ -1,2 +1,2 @@
-const createServer = require('../utils/createServer');
-createServer(3003)
+const createServer = require("../utils/createServer");
+createServer(3003);
