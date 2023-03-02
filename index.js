@@ -14,7 +14,9 @@ app.get('/', async (req, res) => {
     if (args == '1') { 
         const url = counter.traditional();
         const request = await axios.get(url)
+        console.log(url)
         return res.send(request.data)
+
     }
     else {
         const requestType = req.headers['conection-type'];
@@ -24,7 +26,7 @@ app.get('/', async (req, res) => {
         }
         else if (requestType === 'UDP') {
             url = counter.conectionType()
-        }
+        }else return res.send('Error')
         const request = await axios.get(url)
         return res.send(request.data)
         

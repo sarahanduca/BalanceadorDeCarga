@@ -7,7 +7,8 @@ const createServer = (port) => {
     });
     
     app.get('/', (req, res) => {
-        res.send('Port:' + port == 3001 ? 'S1' : port == 3002 ? 'S2' : 'S3')
+        const stringPort = port.toString();
+        res.send('Port: S' + stringPort[3])
     })
 }
 
