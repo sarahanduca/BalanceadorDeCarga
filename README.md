@@ -19,6 +19,6 @@ Necessário ter instalado na máquina o Node.JS e o NPM ou Yarn.
 ## Instruções
 
 1. Após o clone do repositório, execute o comando `npm install` para instalação das dependencias necessárias para o funcionamento do projeto.
-2. PExecute a linha de comando `npm run dev`, feito isso serão abertas três janelas do terminal node, cada uma ouvindo seu respectivo servidor (s1, s2 e s3).
+2. Execute a linha de comando `npm run dev`, feito isso serão abertas três janelas do terminal node, cada uma ouvindo seu respectivo servidor (s1, s2 e s3).
 3. Com os três servidores funcionando, execute o comando `npm start` para execução da API principal, que é o balanceador de carga propriamente dito.
 4. Por fim, execute o comando `npm test`, este comando aceita argumentos, sendo `npm test -- 1` a primeira opção de implementação, e o comando `npm test` a segunda opção. Escolha apenas um. Com isso o algoritmo de teste será executado.
