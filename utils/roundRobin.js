@@ -1,19 +1,16 @@
 class RoundRobin {
   constructor() {
-    this.line = [1, 2, 3];
+    this.servers = [1, 2, 3];
   }
 
-  traditional() {
-    this.line.push(this.line[0]);
-    return "http://localhost:300" + this.line.shift();
+  default() {
+    this.servers.push(this.servers[0]);
+    return "http://localhost:300" + this.servers.shift();
   }
 
-  conectionType() {
-    if (this.line[0] == 1) {
-      this.line.push(this.line[0]);
-      this.line.shift();
-    }
-    return this.traditional();
+  connection() {
+    if (this.servers[0] == 1) this.servers.shift();
+    return this.default();
   }
 }
 

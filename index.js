@@ -3,29 +3,26 @@ const axios = require("axios");
 const roundRobin = require("./utils/roundRobin");
 
 const app = express();
-const args = process.argv[2];
-const counter = new roundRobin();
+const processType = process.argv[2];
+const roundRobinQueue = new roundRobin();
 
-app.listen(3000, () => {
-  console.log("Listening on port 3000 - type: " + args);
-});
+app.listen(3000, () =>
+  console.log(`Listening on port 3000 - type: ${processType || "2"}`)
+);
 
 app.get("/", async (req, res) => {
-  if (args == "1") {
-    const url = counter.traditional();
-    const request = await axios.get(url);
-    console.log(url);
-    return res.send(request.data);
-  } else {
-    // TODO -> fazer o s1 no tcp e o s2, s3 no udp
-    const requestType = req.headers["conection-type"];
-    let url = "";
-    if (requestType === "TCP") {
-      url = "http://localhost:3001";
-    } else if (requestType === "UDP") {
-      url = counter.conectionType();
-    } else return res.send("Error");
-    const request = await axios.get(url);
+  let server = "";
+  if (processType != "1") {
+    const requestType = req.headers["connection-type"];
+    server =
+      requestType == "TCP"
+        ? "http://localhost:3001"
+        : roundRobinQueue.connection();
+    const request = await axios.get(server);
     return res.send(request.data);
   }
+  server = roundRobinQueue.default();
+  const request = await axios.get(server);
+  console.log(server);
+  return res.send(request.data);
 });
