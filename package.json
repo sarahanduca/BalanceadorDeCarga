@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node api.js",
     "test": "node test.js",
     "dev": "start node ./servers/s1.js & start node ./servers/s2.js & start node ./servers/s3.js"
   },
